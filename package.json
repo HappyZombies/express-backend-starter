@@ -10,22 +10,22 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@hapi/joi": "^17.1.0",
+    "@hapi/joi": "^17.1.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-status-codes": "^1.4.0",
-    "knex": "^0.20.8",
-    "morgan": "^1.9.1",
+    "knex": "^0.20.15",
+    "morgan": "^1.10.0",
     "mysql2": "^2.1.0",
-    "objection": "^2.1.2",
+    "objection": "^2.1.3",
     "typedi": "^0.8.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "cross-env": "^7.0.0",
-    "jest": "^25.1.0",
-    "nodemon": "^2.0.2",
+    "cross-env": "^7.0.2",
+    "jest": "^25.5.4",
+    "nodemon": "^2.0.4",
     "supertest": "^4.0.2"
   }
 }

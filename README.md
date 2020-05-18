@@ -40,4 +40,4 @@ To explain quickly how this structure works, you essentially have a 3 layer artc
 
 ## Conclusion
 
-Please feel free to open an issue or pull request so we can discuss some more ideas on how to improve this architecure! Please note that this is simply a building block to get started on a solid node project, anything related to Docker, Jenkins, etc. are left out since everyone will have a different solution. This project simply serves as a base lane to get started and add whatever you want. Eventuall I will have a seperate readme explaning every files purpose and how it all works, but first I would like feedback on this structure.
+Please feel free to open an issue or pull request so we can discuss some more ideas on how to improve this architecure! Please note that this is simply a building block to get started on a solid node project, anything related to Docker, Jenkins, etc. are left out since everyone will have a different solution. This project simply serves as a base lane to get started and add whatever you want.

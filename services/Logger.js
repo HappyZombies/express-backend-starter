@@ -1,35 +1,34 @@
-const winston = require("winston");
-
-const transports = [];
-if (process.env.NODE_ENV !== "dev") {
-  transports.push(new winston.transports.Console());
-} else {
-  transports.push(
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.cli(),
-        winston.format.splat()
-      )
-    })
-  );
+/**
+ * Verify basic fake logger, uses console.log to format the log.
+ */
+class Logger {
+  colors = {
+    red: "\x1b[31m",
+    green: "\x1b[32m",
+    yellow: "\x1b[33m",
+    cyan: "\x1b[36m",
+    reset: "\x1b[0m"
+  };
+  error(message, className, extendedFields = {}) {
+    this._writeLocal("ERROR", className, message, extendedFields, this.colors.red);
+  }
+  warn(message, className, extendedFields = {}) {
+    this._writeLocal("WARN", className, message, extendedFields, this.colors.yellow);
+  }
+  info(message, className, extendedFields = {}) {
+    this._writeLocal("INFO", className, message, extendedFields, this.colors.cyan);
+  }
+  debug(message, className, extendedFields = {}) {
+    this._writeLocal("DEBUG", className, message, extendedFields, this.colors.green);
+  }
+  _writeLocal(level, className, message, extendedFields, color) {
+    const formattedMessage =
+      `\n-----\n${new Date().toLocaleString()} - ${level}\n` +
+      `file: ${className}\n` +
+      `message: ${message}\n` +
+      `extendedFields: ${JSON.stringify(extendedFields)}\n-----\n`;
+    console.log(color, formattedMessage, this.colors.reset);
+  }
 }
 
-const myFormat = winston.format.printf(info => {
-  return `${info.timestamp} ${info.level}: ${info.message}`;
-});
-
-const loggerInstance = winston.createLogger({
-  transports,
-  level: process.env.LOG_LEVEL,
-  levels: winston.config.npm.levels,
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.colorize(),
-    myFormat,
-    winston.format.errors({ stack: true }),
-    winston.format.splat(),
-    winston.format.json()
-  )
-});
-
-module.exports = loggerInstance;
+module.exports = new Logger();

@@ -1,0 +1,18 @@
+version: "3.9"
+
+services: 
+    mysql:
+        image: mysql:5.7
+        volumes: 
+            - mysqldb:/var/lib/mysql
+        restart: always
+        environment: 
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: test
+            MYSQL_USER: test
+            MYSQL_PASSWORD: password
+        ports:
+            - 3306:3306
+
+volumes: 
+    mysqldb: {}

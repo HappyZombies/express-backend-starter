@@ -41,3 +41,5 @@ jspm_packages
 
 # Environment Variables
 .env
+
+.vscode

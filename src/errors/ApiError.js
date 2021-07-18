@@ -1,8 +1,9 @@
+const { StatusCodes } = require("http-status-codes");
+
 class ApiError extends Error {
-  constructor(message, httpStatusCode = 500, context, ...params) {
+  constructor(message, httpStatusCode = StatusCodes.INTERNAL_SERVER_ERROR, context, ...params) {
     super(...params);
 
-    // Maintains proper stack trace for where our error was thrown (only available on V8)
     if (Error.captureStackTrace) {
       Error.captureStackTrace(this, ApiError);
     }

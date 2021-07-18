@@ -1,22 +1,20 @@
-if (process.env.NODE_ENV === "dev") require("dotenv").config();
 const express = require("express");
 
 const loaders = require("./loaders");
-const logger = require("./services/Logger");
+const logger = require("./services/internal/Logger");
 
-startServer = async () => {
+const startServer = async () => {
   logger.debug("startServer() was called, starting server");
   const app = express();
   await loaders(app);
   app.listen(process.env.PORT, err => {
     if (err) {
       logger.error(err);
-      process.exit(1);
-      return;
+      return process.exit(1);
     }
     logger.info(`
       #########################################################
-      👍  Server listening on port: ${process.env.PORT} 👍
+        Server listening on port: ${process.env.PORT} 
       #########################################################
     `);
   });

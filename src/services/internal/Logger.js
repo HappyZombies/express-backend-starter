@@ -2,13 +2,15 @@
  * Verify basic fake logger, uses console.log to format the log.
  */
 class Logger {
-  colors = {
-    red: "\x1b[31m",
-    green: "\x1b[32m",
-    yellow: "\x1b[33m",
-    cyan: "\x1b[36m",
-    reset: "\x1b[0m"
-  };
+  constructor() {
+    this.colors = {
+      red: "\x1b[31m",
+      green: "\x1b[32m",
+      yellow: "\x1b[33m",
+      cyan: "\x1b[36m",
+      reset: "\x1b[0m"
+    };
+  }
   error(message, className, extendedFields = {}) {
     this._writeLocal("ERROR", className, message, extendedFields, this.colors.red);
   }

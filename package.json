@@ -16,7 +16,7 @@
     "http-status-codes": "^2.1.4",
     "knex": "^0.95.7",
     "mysql2": "^2.2.5",
-    "objection": "^2.2.15"
+    "objection": "^2.2.16"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
